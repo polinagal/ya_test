@@ -46,10 +46,12 @@ public final class RtriangleProvider {
     
     public static Rtriangle getRtriangle(int n) {   
         switch (n) {
+            case -1:
+                return new TriangleImpl(1, 1, 2, 2, 4, 4);
             case 0:
                 return new TriangleImpl(0, 0, 0, 0, 0, 0);
             case 1:
-                return new TriangleImpl(3,7,3,15,8,7);
+                return new TriangleImpl(3,2,5,0,5,4);
             case 2:
                 return new TriangleImpl(8,5,13,5,13,9);
             case 3:
@@ -58,7 +60,10 @@ public final class RtriangleProvider {
                 return new TriangleImpl(13,14,13,18,17,14);
             case 5:
                 return new TriangleImpl(-3, -2, 1, -2, -3, 4);
-                
+            case 6:
+                return new TriangleImpl(0, 0, 0, 1, 1, 1);
+            case 7:
+                return new TriangleImpl(2, 0, 3, 0, 4, 0);    
         }
         //generate coordinates
         int x1, y1,  x2,  y2, x3, y3;

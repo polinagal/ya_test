@@ -40,6 +40,7 @@ public class Testtriangle {
         long l1 = getSqLength(x1,y1, x2, y2);  //1-2
         long l2 = getSqLength(x3,y3, x2, y2);  //2-3
         long l3 = getSqLength(x1,y1, x3, y3);  //3-1
+        
         System.out.println("Triangle coordinates:\n"
                 + "1: (" + x1 + "; " + y1 + ")\n"
                 + "2: (" + x2 + "; " + y2 + ")\n"
@@ -47,19 +48,39 @@ public class Testtriangle {
         System.out.println("l1 = " + l1 + ""
                 + "\nl2 = " + l2 + ""
                 + "\nl3 = " + l3 +"\n");
+        
+        
+        float l1sq = (float) Math.sqrt(l1);
+        float l2sq = (float) Math.sqrt(l2);
+        float l3sq = (float) Math.sqrt(l3);
+        
+        //triangle inequality theorem
+        boolean trin1 = (l1 < (l2 + l3));
+        boolean trin2 = (l2 < (l1 + l3));
+        boolean trin3 = (l3 < (l2 + l1));
+        
+        if((l1 < 1) || (l2 < 1) || (l3 < 1)){
+            return false;
+        }
+        
+//        if (!trin1 || !trin2 || !trin3)
+//            return false;
+        
+        
         //long max = Math.max(Math.max(l1, l2), l3);
+        
+        
         boolean pyth1 = (l1 == (l2 + l3));
         boolean pyth2 = (l2 == (l1 + l3));
         boolean pyth3 = (l3 == (l2 + l1));
-        
-        return ((pyth1 || pyth2 || pyth3) &&
-                !(pyth1&&pyth2&&pyth3));
+                
+        return ((pyth1 || pyth2 || pyth3));
     }
   
     @Before  
     public void setUp() {  
-        triangle1 = RtriangleProvider.getRtriangle(0);  
-        triangle2 = RtriangleProvider.getRtriangle(5); 
+        triangle1 = RtriangleProvider.getRtriangle(-1);  
+        triangle2 = RtriangleProvider.getRtriangle(1); 
         triangle3 = RtriangleProvider.getRtriangle(15); 
     }  
   
