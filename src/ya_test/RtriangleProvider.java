@@ -46,6 +46,8 @@ public final class RtriangleProvider {
     
     public static Rtriangle getRtriangle(int n) {   
         switch (n) {
+            case 0:
+                return new TriangleImpl(0, 0, 0, 0, 0, 0);
             case 1:
                 return new TriangleImpl(3,7,3,15,8,7);
             case 2:
@@ -54,11 +56,13 @@ public final class RtriangleProvider {
                 return new TriangleImpl(8,10,8,13,12,13);
             case 4:
                 return new TriangleImpl(13,14,13,18,17,14);
+            case 5:
+                return new TriangleImpl(-3, -2, 1, -2, -3, 4);
                 
         }
         //generate coordinates
         int x1, y1,  x2,  y2, x3, y3;
-        do { // make sure that no points are on the same line
+        //do { // make sure that no points are on the same line
             x1 = rand.nextInt(limit);
             y1 = rand.nextInt(limit);
 
@@ -67,7 +71,7 @@ public final class RtriangleProvider {
 
             x3 = rand.nextInt(limit);
             y3 = rand.nextInt(limit);
-        } while (!((x2 - x1) * (y3 - y1) == (y2 - y1) * (x3 - x1)));
+        //} while (!((x2 - x1) * (y3 - y1) == (y2 - y1) * (x3 - x1)));
         return new TriangleImpl(x1, y1,  x2,  y2, x3, y3);
     }
 }
