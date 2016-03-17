@@ -48,17 +48,18 @@ public class Testtriangle {
                 + "\nl2 = " + l2 + ""
                 + "\nl3 = " + l3 +"\n");
         //long max = Math.max(Math.max(l1, l2), l3);
-        boolean pyth1 = (l1 == l2 + l3);
-        boolean pyth2 = (l2 == l1 + l3);
-        boolean pyth3 = (l3 == l2 + l1);
+        boolean pyth1 = (l1 == (l2 + l3));
+        boolean pyth2 = (l2 == (l1 + l3));
+        boolean pyth3 = (l3 == (l2 + l1));
         
-        return (pyth1 || pyth2 || pyth3);
+        return ((pyth1 || pyth2 || pyth3) &&
+                !(pyth1&&pyth2&&pyth3));
     }
   
     @Before  
     public void setUp() {  
-        triangle1 = RtriangleProvider.getRtriangle(1);  
-        triangle2 = RtriangleProvider.getRtriangle(3); 
+        triangle1 = RtriangleProvider.getRtriangle(0);  
+        triangle2 = RtriangleProvider.getRtriangle(5); 
         triangle3 = RtriangleProvider.getRtriangle(15); 
     }  
   
